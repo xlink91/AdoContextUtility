@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>AdoContextPackage</id>
+    <version>1.0.0.0</version>
+    <title>AdoContext</title>
+    <authors>DHT</authors>
+    <owners>DHT</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Makes Easy To Use Store Procedure in ADO.Net</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Database ADO.Net StoreProcedure</tags>
+	<license type="file">LICENSE.txt</license>
+  </metadata>
+    <files>
+		<file src="licenses\LICENSE.txt" target="" />
+	</files>
+</package>
