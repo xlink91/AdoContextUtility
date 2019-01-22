@@ -12,7 +12,7 @@
     <copyright>Copyright 2019</copyright>
     <tags>Database ADO.Net StoreProcedure</tags>
 	  <!--<license type="file">LICENSE.txt</license>-->
-    <license type="expression">Apache-2.0</license>
+    <licenseUrl>Apache-2.0</licenseUrl>
   </metadata>
     <!--<files>
 		<file src="licenses\LICENSE.txt" target="" />
