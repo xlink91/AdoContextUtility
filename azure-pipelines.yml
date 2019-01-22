@@ -36,4 +36,4 @@ steps:
   inputs:
     versionSpec: '4.9.2'
     command: pack
-    packagesToPack: '**/*.csproj'
+    #packagesToPack: '**/*.csproj'
