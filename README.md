@@ -27,7 +27,7 @@ You have a SQL Store Procedure with name SP_RetrieveData with parameters Param1,
                 .AddParameter(() => sp_RetrieveData.Field1).Setting(null, null, ParameterDirection.ReturnValue)
                 .AddParameter(() => sp_RetrieveData.Field2).Setting(null, null, ParameterDirection.ReturnValue)
                 ;
-            AdoContext adoContext = new AdoContext(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
+            IAdoContext adoContext = new AdoContext(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
             (dynamic result, IList ls) = adoContext.Execute(storeProcedureInfo);
 
             for(int i = 0; i < ls.Count; ++i)
@@ -38,3 +38,43 @@ You have a SQL Store Procedure with name SP_RetrieveData with parameters Param1,
                 DoStuff(Field1, Field2);
             }
         }
+        
+***
+### Mapper Usage Example with Attributes
+***
+    public class SP_RetrieveData
+    {
+        [AdoEntityDescription(direction = System.Data.ParameterDirection.Input)]
+        public string Input1 { get; set; }
+
+        [AdoEntityDescription(direction = System.Data.ParameterDirection.ReturnValue)]
+        public string Result2 { get; set; }
+
+        [AdoEntityDescription(direction = System.Data.ParameterDirection.ReturnValue)]
+        public string Result3 { get; set; }
+    }
+  
+    public Entity
+    {
+        [Mapper(FieldName = "Result1")]
+        public string NameResult1 { get; set; }
+        public string Others { get; set; }
+        [Mapper(FieldName = "Result2")]
+        public string NameResult2 { get; set; }
+    }
+    
+    void Using AdoContext()
+    {
+            SP_RetrieveData sp_RetrieveData = new SP_RetrieveData();
+            IAdoContext adoContext = new AdoContext(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
+
+            (dynamic result, IList ls) = adoContext.Execute(pL_TerminalsWithITD);
+
+            List<Entity> entities = Map.Instance.MapData<SP_RetrieveData, Entity>((result, ls));
+
+            foreach (var entity in entities)
+            {
+                DoStuff(entity);
+            }
+    }
+
