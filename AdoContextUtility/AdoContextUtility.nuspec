@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>AdoContextPackage</id>
+    <id>AdoContextUtility</id>
     <version>1.0.0.0</version>
     <title>AdoContext</title>
     <authors>DHT</authors>
