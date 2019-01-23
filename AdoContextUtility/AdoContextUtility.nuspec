@@ -15,9 +15,5 @@
     <dependencies>
       <dependency id="System.ValueTuple" version="4.5.0"/>
     </dependencies>
-	  <!--<license type="file">LICENSE.txt</license>-->
   </metadata>
-    <!--<files>
-		<file src="licenses\LICENSE.txt" target="" />
-	</files>-->
 </package>
