@@ -12,6 +12,7 @@
     <copyright>Copyright 2019</copyright>
     <tags>Database ADO.Net StoreProcedure</tags>
     <licenseUrl>https://www.opensource.org/licenses/MIT</licenseUrl>
+    <repository type="git" url="https://github.com/xlink91/AdoContextUtility.git" />
     <dependencies>
       <dependency id="System.ValueTuple" version="4.5.0"/>
     </dependencies>
