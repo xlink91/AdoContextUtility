@@ -44,18 +44,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdoAttribute\AdoEntityDescriptionAttribute.cs" />
+    <Compile Include="Attributes\AdoAttribute\AdoEntityDescriptionAttribute.cs" />
+    <Compile Include="Attributes\MappingAttribute\MapperAttribute.cs" />
     <Compile Include="Common\DynamicResult.cs" />
     <Compile Include="Common\StoreProcedureInfo.cs" />
     <Compile Include="Contract\IAdoContext.cs" />
+    <Compile Include="Contract\IMap.cs" />
+    <Compile Include="Extension\AdoContextExtension.cs" />
     <Compile Include="Implementation\AdoContext.cs" />
+    <Compile Include="Implementation\Map.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="AdoContextUtility.nuspec" />
-    <None Include="obj\Debug\AdoContextUtility.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\AdoContextUtility.csprojAssemblyReference.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -63,8 +64,6 @@
   <ItemGroup>
     <Content Include="licenses\LICENSE.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="obj\Debug\TempPE\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

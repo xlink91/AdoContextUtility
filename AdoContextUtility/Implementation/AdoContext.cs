@@ -1,4 +1,5 @@
 ﻿using AdoContextUtility.Common;
+using AdoContextUtility.Contract;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace AdoContextUtility.Implementation
 {
-    public class AdoContext
+    public class AdoContext : IAdoContext
     {
         protected string ConnectionString { get; set; }
         public AdoContext(string ConnectionString = null)

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace AdoContextUtility.AdoAttribute
+namespace AdoContextUtility.Attributes.AdoAttribute
 {
     public class AdoEntityDescriptionAttribute : Attribute
     {
