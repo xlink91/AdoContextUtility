@@ -1,6 +1,7 @@
 ﻿using AdoContextUtility.Attributes.AdoAttribute;
 using AdoContextUtility.Common;
 using AdoContextUtility.Contract;
+using AdoContextUtility.Implementation;
 using System;
 using System.Collections;
 using System.Data;
@@ -13,7 +14,7 @@ namespace AdoContextUtility.Extension
 {
     public static class AdoContextExtension
     {
-        public static (dynamic, IList ls) Execute<TEntity>(this IAdoContext adoContext, TEntity entity)
+        public static (dynamic, IList ls) Execute<TEntity>(this AdoContext adoContext, TEntity entity)
         {
             Type type = typeof(TEntity);
             Type spi = typeof(StoreProcedureInfo);
