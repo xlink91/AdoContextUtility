@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>AdoContextUtility</id>
-    <version></version>
+    <version>1.0.1</version>
     <title>AdoContext</title>
     <authors>DHT</authors>
     <owners>DHT</owners>
