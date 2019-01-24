@@ -68,7 +68,7 @@ You have a SQL Store Procedure with name SP_RetrieveData with parameters Param1,
             SP_RetrieveData sp_RetrieveData = new SP_RetrieveData();
             IAdoContext adoContext = new AdoContext(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
 
-            (dynamic result, IList ls) = adoContext.Execute(pL_TerminalsWithITD);
+            (dynamic result, IList ls) = adoContext.Execute(sp_RetrieveData);
 
             List<Entity> entities = Map.Instance.MapData<SP_RetrieveData, Entity>((result, ls));
 
