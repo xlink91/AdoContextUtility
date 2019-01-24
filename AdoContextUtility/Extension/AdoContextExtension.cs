@@ -26,14 +26,7 @@ namespace AdoContextUtility.Extension
                 if (attribute == null)
                     continue;
 
-                ConstantExpression constant = Expression.Constant(entity);
-                MemberInfo memberInfo = type.GetMember(prop.Name).First();
-                Expression body = Expression.MakeMemberAccess(constant, memberInfo);
-                LambdaExpression lambda = Expression.Lambda(typeof(Func<>).MakeGenericType(prop.PropertyType), body, null);
-
-                MethodInfo methodInfo = spi.GetMethod(nameof(sp.AddParameter)).MakeGenericMethod(prop.PropertyType);
-                methodInfo.Invoke(sp, new[] { lambda });
-                SqlParameter sqlp = sp[prop.Name];
+                SqlParameter sqlp = new SqlParameter(prop.Name, prop.GetValue(entity));
                 sqlp.SqlDbType = attribute.dbType != (SqlDbType)int.MaxValue ? attribute.dbType : sqlp.SqlDbType;
                 sqlp.Size = attribute.size != -1 ? attribute.size : sqlp.Size;
                 sqlp.Direction = attribute.direction != 0 ? attribute.direction : sqlp.Direction;
@@ -41,6 +34,7 @@ namespace AdoContextUtility.Extension
                 sqlp.Scale = attribute.scale != 0 ? attribute.scale : sqlp.Scale;
                 sqlp.SourceColumn = attribute.sourceColumn ?? sqlp.SourceColumn;
                 sqlp.SourceVersion = attribute.sourceVersion != 0 ? attribute.sourceVersion : sqlp.SourceVersion;
+                sp[prop.Name] = sqlp;
             }
             return adoContext.Execute(sp);
         }
