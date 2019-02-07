@@ -15,7 +15,7 @@ namespace AdoContextUtility.Implementation
         {
             this.ConnectionString = ConnectionString;
         }
-
+         
         public (DynamicResult, IList) Execute(StoreProcedureInfo storeProcedureInfo, string ConnectionString = null)
         {
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString ?? this.ConnectionString))
